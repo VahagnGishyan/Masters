@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CSmart">
+      <UniqueIdentifier>{6cd2aa1a-648b-4b81-9d21-d9c242d46354}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graph">
+      <UniqueIdentifier>{3f31c74e-c3c9-4025-bed3-cc7f96badee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graph\Matrix">
+      <UniqueIdentifier>{9e1a5212-b3b5-4980-a132-0471ffefda64}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CSmart\Int.hpp">
+      <Filter>CSmart</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph\Matrix\Location.hpp">
+      <Filter>Graph\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph\Matrix\Sizes.hpp">
+      <Filter>Graph\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="GTest.hpp" />
+  </ItemGroup>
+</Project>
