@@ -1,0 +1,3 @@
+
+set DEBUG_LOG_SET=ON
+rem set DEBUG_LOG_SET=OFF

@@ -1,0 +1,17 @@
+
+$(MASTERS_DEBUG64)\
+$(MASTERS_TEMP)\$(ProjectName)\
+
+$(BOOST)\
+$(QT_HEADERS)\
+$(MASTERS_HEADERS)\
+
+$(MASTERS_LIB)\
+$(MASTERS_LIB)\$(TargetName).lib
+
+
+
+
+
+
+
