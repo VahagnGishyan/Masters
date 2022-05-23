@@ -38,6 +38,7 @@ namespace Masters
 				CLocation()                                                       noexcept;
 				CLocation(const COrdinate&  ordinate, const CAbscissa&  abscissa) noexcept;
 				CLocation(      COrdinate&& ordinate,       CAbscissa&& abscissa) noexcept;
+				CLocation(int,int) = delete;
 
 				virtual ~CLocation()                                              noexcept;
 

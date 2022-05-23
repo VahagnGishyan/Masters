@@ -54,7 +54,7 @@ namespace Masters
 
 			bool operator== (const CSizes& left, const CSizes& right) noexcept
 			{
-				return ((left.height() == right.height()) && (left.length() == right.length()));
+				return ((left.height() == right.height()) && (left.length() == right.length()));  
 			}
 			bool operator!= (const CSizes& left, const CSizes& right) noexcept
 			{
