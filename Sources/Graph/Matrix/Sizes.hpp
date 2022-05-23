@@ -24,8 +24,8 @@ namespace Masters
 		{
 			namespace Sizes
 			{
-				MT_MATRIX_CSIZES_EXPORT MacroClassInt(CHeight);
-				MT_MATRIX_CSIZES_EXPORT MacroClassInt(CLength);
+				MacroClassInt(CHeight);
+				MacroClassInt(CLength);
 			}
 
 			class MT_MATRIX_CSIZES_EXPORT CSizes
@@ -37,6 +37,7 @@ namespace Masters
 				CSizes();
 				CSizes(const CHeight& height, const CLength& length) /*except { std::string } */;
 				CSizes(CHeight&& height, CLength&& length)           /*except { std::string } */;
+				CSizes(int, int) = delete;
 				virtual ~CSizes();
 
 			public: // public geter seter

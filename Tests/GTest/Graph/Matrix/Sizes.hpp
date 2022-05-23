@@ -60,7 +60,8 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 #define MACRO_GM_SIZE_INIT_EQ(HtValue, LtValue)	        \
 {														\
 	{													\
-		CSizes obj(HtValue, LtValue);				    \
+		CSizes obj(Sizes::CHeight(HtValue),				\
+			Sizes::CLength(LtValue));				    \
 														\
 		ASSERT_EQ(obj.height(), HtValue);			    \
 		ASSERT_EQ(obj.length(), LtValue);		    	\
@@ -86,7 +87,8 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 		bool bExcept = false;						    \
 		try												\
 		{												\
-			CSizes obj(HtValue, LtValue);			    \
+			CSizes obj(Sizes::CHeight(HtValue),         \
+				       Sizes::CLength(LtValue));	    \
 		}												\
 		catch(const std::string&)					    \
 		{											    \
@@ -96,20 +98,20 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 	}													\
 }
 
-#define MACRO_GTEST_SIZE_NEG					\
-{												\
-	MACRO_GM_SIZE_NEG_INIT_EQ(   0,   -1);	\
-	MACRO_GM_SIZE_NEG_INIT_EQ(  -1,    1);	\
-	MACRO_GM_SIZE_NEG_INIT_EQ(  -1,    0);	\
-	MACRO_GM_SIZE_NEG_INIT_EQ(-126,  644);	\
-	MACRO_GM_SIZE_NEG_INIT_EQ(-592,    0);	\
-	MACRO_GM_SIZE_NEG_INIT_EQ(-650,   51);	\
-	MACRO_GM_SIZE_NEG_INIT_EQ(  51, -550);	\
-	MACRO_GM_SIZE_NEG_INIT_EQ(   5,   -5);	\
-	MACRO_GM_SIZE_NEG_INIT_EQ(5655, -955);	\
+#define MACRO_GTEST_SIZE_NEG                    \
+{                                               \
+	MACRO_GM_SIZE_NEG_INIT_EQ(   0,   -1);	    \
+	MACRO_GM_SIZE_NEG_INIT_EQ(  -1,    1);	    \
+	MACRO_GM_SIZE_NEG_INIT_EQ(  -1,    0);	    \
+	MACRO_GM_SIZE_NEG_INIT_EQ(-126,  644);	    \
+	MACRO_GM_SIZE_NEG_INIT_EQ(-592,    0);	    \
+	MACRO_GM_SIZE_NEG_INIT_EQ(-650,   51);	    \
+	MACRO_GM_SIZE_NEG_INIT_EQ(  51, -550);	    \
+	MACRO_GM_SIZE_NEG_INIT_EQ(   5,   -5);	    \
+	MACRO_GM_SIZE_NEG_INIT_EQ(5655, -955);	    \
 }
 
-#define MACRO_GM_SIZE_GET_SET(HtValue, LtValue)     \
+#define MACRO_GM_SIZE_GET_SET(HtValue, LtValue)         \
 {													    \
 	{												    \
 		CSizes obj;								        \
@@ -136,29 +138,39 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 }
 
 #define MACRO_GM_SIZE_OPERATORS(HtValue, LtValue)               \
-{																	  \
-	const CSizes obj         (HtValue, LtValue);				  \
-	EXPECT_TRUE(obj == CSizes(HtValue, LtValue));				  \
-																	  \
-	EXPECT_TRUE(obj != CSizes(HtValue,        LtValue +   1));  \
-	EXPECT_TRUE(obj != CSizes(HtValue,        LtValue +  21));  \
-	EXPECT_TRUE(obj != CSizes(HtValue + 1,    LtValue      ));  \
-	EXPECT_TRUE(obj != CSizes(HtValue + 1,    LtValue +   1));  \
-	EXPECT_TRUE(obj != CSizes(HtValue + 949,  LtValue +  565)); \
-	EXPECT_TRUE(obj != CSizes(HtValue + 5656, LtValue + 1565)); \
+{																\
+	const CSizes obj         (Sizes::CHeight(HtValue),			\
+							  Sizes::CLength(LtValue));			\
+																\
+	EXPECT_TRUE(obj == CSizes(Sizes::CHeight(HtValue),          \
+							  Sizes::CLength(LtValue)));		\
+																\
+	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue),			\
+							  Sizes::CLength(LtValue + 1)));    \
+	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue),			\
+							  Sizes::CLength(LtValue + 21)));   \
+	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue + 1),      \
+							  Sizes::CLength(LtValue)));        \
+	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue + 1),      \
+							  Sizes::CLength(LtValue + 1)));    \
+	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue + 656),    \
+							  Sizes::CLength(LtValue + 4545))); \
+	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue + 1655),   \
+							  Sizes::CLength(LtValue + 959)));  \
 }
 
-#define MACRO_GM_SIZE_VALID(HtValue, LtValue) \
-{													\
-	CSizes obj(HtValue, LtValue);				\
-	if (HtValue < 0 || LtValue < 0)				\
-	{												\
-		ASSERT_FALSE(Sizes::isValid(obj));		\
-	}												\
-	else											\
-	{												\
-		ASSERT_TRUE(Sizes::isValid(obj));		\
-	}												\
+#define MACRO_GM_SIZE_VALID(HtValue, LtValue)   \
+{                                               \
+	CSizes obj(Sizes::CHeight(HtValue + 1655),  \
+			   Sizes::CLength(LtValue + 959));  \
+	if (HtValue < 0 || LtValue < 0)             \
+	{                                           \
+		ASSERT_FALSE(Sizes::isValid(obj));	    \
+	}										    \
+	else									    \
+	{										    \
+		ASSERT_TRUE(Sizes::isValid(obj));	    \
+	}										    \
 }
 
 	//////////////////////////////////////////////////////////////////////////////////////////

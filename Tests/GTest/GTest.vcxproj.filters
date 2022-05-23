@@ -26,4 +26,7 @@
     </ClInclude>
     <ClInclude Include="GTest.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>

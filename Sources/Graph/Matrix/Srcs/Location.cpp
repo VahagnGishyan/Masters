@@ -12,7 +12,6 @@ namespace Masters
 	{
 		namespace Matrix
 		{
-
 			CLocation::CLocation()                                                     noexcept :
 				m_ordinate(), m_abscissa() {}
 
