@@ -265,4 +265,5 @@ TEST(TestCaseName, Test##TypeName)				     	    \
 }                                   						\
 
 MacroClassInt(MyInt);
+MacroClassIntImp(MyInt);
 MACRO_GTEST_CLASS_INT(CSmartMacroInt, MyInt)

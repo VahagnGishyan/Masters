@@ -4,16 +4,6 @@
 
 #include "Sizes.hpp"
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//using namespace Masters::Graph::Matrix;
-//using Masters::Graph::Matrix::CSizes;
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
 namespace Masters
 {
 	namespace Graph
@@ -63,9 +53,15 @@ namespace Masters
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			bool Sizes::isValid(const CSizes& loc) noexcept
+			namespace Sizes
 			{
-				return ((loc.height() >= Sizes::CHeight(0)) && (loc.length() >= Sizes::CLength(0)));
+				MacroClassIntImp(CHeight);
+				MacroClassIntImp(CLength);
+
+				bool isValid(const CSizes& loc) noexcept
+				{
+					return ((loc.height() >= Sizes::CHeight(0)) && (loc.length() >= Sizes::CLength(0)));
+				}
 			}
 		}
 	}

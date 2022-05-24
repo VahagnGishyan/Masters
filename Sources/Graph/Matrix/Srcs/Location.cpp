@@ -4,8 +4,6 @@
 
 #include "Location.hpp"
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
 namespace Masters
 {
 	namespace Graph
@@ -36,15 +34,6 @@ namespace Masters
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			//bool CLocation::operator== (const CLocation& obj)           const  noexcept 
-			//{
-			//	return ((this->ordinate() == obj.ordinate()) && (this->abscissa() == obj.abscissa()));
-			//};
-			//bool CLocation::operator!= (const CLocation& obj)           const  noexcept 
-			//{
-			//	return ((this->ordinate() != obj.ordinate()) || (this->abscissa() != obj.abscissa()));
-			//};
-
 			bool operator== (const CLocation& left, const CLocation& right) noexcept
 			{
 				return ((left.ordinate() == right.ordinate()) && (left.abscissa() == right.abscissa()));
@@ -56,28 +45,20 @@ namespace Masters
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
 
-			//bool CLocation::operator>= (const CLocation& obj)           const  noexcept 
-			//{
-			//	return ((this->ordinate() >= obj.ordinate()) && (this->abscissa() >= obj.abscissa()));
-			//};
-			//bool CLocation::operator<= (const CLocation& obj)           const  noexcept 
-			//{
-			//	return ((this->ordinate() <= obj.ordinate()) && (this->abscissa() <= obj.abscissa()));
-			//};
-			//bool CLocation::operator> (const CLocation& obj)            const  noexcept
-			//{
-			//	return ((this->ordinate() > obj.ordinate()) && (this->abscissa() > obj.abscissa()));
-			//};
-			//bool CLocation::CLocation::operator< (const CLocation& obj) const  noexcept
-			//{
-			//	return ((this->ordinate() < obj.ordinate()) && (this->abscissa() < obj.abscissa()));
-			//};
-
-			////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			bool Location::isValid(const CLocation& loc) noexcept
+			namespace Location
 			{
-				return ((loc.ordinate() >= COrdinate(0)) && (loc.abscissa() >= CAbscissa(0)));
+				MacroClassIntImp(COrdinate);
+				MacroClassIntImp(CAbscissa);
+
+				bool isValid(const CLocation& loc) noexcept
+				{
+					return ((loc.ordinate() >= COrdinate(0)) && (loc.abscissa() >= CAbscissa(0)));
+				}
+
+				//bool Location::isValid(const CLocation& loc, const CSizes& sizes) noexcept
+				//{
+				//	return (isValid(loc) && ((loc.ordinate() < sizes.height().value()) && (loc.abscissa() < sizes.height().value())));
+				//}
 			}
 
 			////////////////////////////////////////////////////////////////////////////////////////////////////
