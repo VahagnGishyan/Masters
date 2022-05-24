@@ -122,15 +122,20 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CAbscissa)
 	CLocation obj(ord, abs);                                          \
 	EXPECT_TRUE(obj == CLocation(ord, abs));        				  \
 																	  \
-	EXPECT_TRUE(obj != CLocation(OrdValue,        AbsValue +    1));  \
-	EXPECT_TRUE(obj != CLocation(OrdValue,        AbsValue -    1));  \
-	EXPECT_TRUE(obj != CLocation(OrdValue + 1,    AbsValue       ));  \
-	EXPECT_TRUE(obj != CLocation(OrdValue + 1,    AbsValue -    1));  \
-	EXPECT_TRUE(obj != CLocation(OrdValue + 1,    AbsValue +    1));  \
-	EXPECT_TRUE(obj != CLocation(OrdValue - 1,    AbsValue -    1));  \
-	EXPECT_TRUE(obj != CLocation(OrdValue - 949,  AbsValue +   565)); \
-	EXPECT_TRUE(obj != CLocation(OrdValue + 65,   AbsValue - 65651)); \
-	EXPECT_TRUE(obj != CLocation(OrdValue - 5656, AbsValue -  1565)); \
+	EXPECT_TRUE(obj != CLocation(Location::COrdinate(OrdValue),       \
+								 Location::CAbscissa(AbsValue + 1)));  \
+	EXPECT_TRUE(obj != CLocation(Location::COrdinate(OrdValue),       \
+								 Location::CAbscissa(AbsValue - 1)));  \
+	EXPECT_TRUE(obj != CLocation(Location::COrdinate(OrdValue + 1),   \
+								 Location::CAbscissa(AbsValue)));      \
+	EXPECT_TRUE(obj != CLocation(Location::COrdinate(OrdValue + 1),   \
+								 Location::CAbscissa(AbsValue - 1)));  \
+	EXPECT_TRUE(obj != CLocation(Location::COrdinate(OrdValue + 1),   \
+								 Location::CAbscissa(AbsValue - 1)));  \
+	EXPECT_TRUE(obj != CLocation(Location::COrdinate(OrdValue - 1),   \
+								 Location::CAbscissa(AbsValue - 1)));  \
+	EXPECT_TRUE(obj != CLocation(Location::COrdinate(OrdValue - 949), \
+								 Location::CAbscissa(AbsValue + 565)));\
 }
 
 #define MACRO_GM_LOCATION_VALID(OrdValue, AbsValue) \
@@ -148,6 +153,27 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CAbscissa)
 		ASSERT_TRUE(Location::isValid(obj));		\
 	}												\
 }
+
+#define MACRO_GM_LOCATION_SIZE_VALID(OrdValue, AbsValue, HgtValue, LgtValue) \
+{													                         \
+	CLocation obj(Location::COrdinate(OrdValue),                             \
+				  Location::CAbscissa(AbsValue));                            \
+		                                                                     \
+	CSizes sizes(Sizes::CHeight(HgtValue),                                   \
+	             Sizes::CLength(LgtValue));	                                 \
+		                                                                     \
+	if (((OrdValue < 0) || (AbsValue < 0)) ||                                \
+	((OrdValue >= HgtValue) || (AbsValue >= LgtValue)))                      \
+	{												                         \
+		EXPECT_FALSE(Location::isValid(obj, sizes));                         \
+	}												                         \
+	else											                         \
+	{												                         \
+		EXPECT_TRUE(Location::isValid(obj, sizes));	                         \
+	}												                         \
+}
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -170,26 +196,39 @@ TEST(GraphMatrixLocation, CtorEmpty)
 TEST(GraphMatrixLocation, Ctor)
 {
 	MACRO_GTEST_LOC_AUTO(MACRO_GM_LOCATION_NOINIT_EQ);
-	//MACRO_GTEST_LOC_AUTO(MACRO_GM_LOCATION_INIT_EQ);
+	MACRO_GTEST_LOC_AUTO(MACRO_GM_LOCATION_INIT_EQ);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
 TEST(GraphMatrixLocation, GeterSeter)
 {
-	 //MACRO_GTEST_LOC_AUTO(MACRO_GM_LOCATION_GET_SET);
+	 MACRO_GTEST_LOC_AUTO(MACRO_GM_LOCATION_GET_SET);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
 TEST(GraphMatrixLocation, Operators)
 {
-	//MACRO_GTEST_LOC_AUTO(MACRO_GM_LOCATION_OPERATORS);
+	MACRO_GTEST_LOC_AUTO(MACRO_GM_LOCATION_OPERATORS);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
 TEST(GraphMatrixLocation, Valid)
 {
-	//MACRO_GTEST_LOC_AUTO(MACRO_GM_LOCATION_VALID);
+	MACRO_GTEST_LOC_AUTO(MACRO_GM_LOCATION_VALID);
+	
+	MACRO_GM_LOCATION_SIZE_VALID(   0,   0,   0,   0);
+	MACRO_GM_LOCATION_SIZE_VALID(   0,   1,   1,   1);
+	MACRO_GM_LOCATION_SIZE_VALID(   1,   0,   0,   0);
+	MACRO_GM_LOCATION_SIZE_VALID(   0,  -1,   0,   0);
+	MACRO_GM_LOCATION_SIZE_VALID(  -1,   0,   2,   1);
+	MACRO_GM_LOCATION_SIZE_VALID(  -1,  -1,   4,   4);
+	MACRO_GM_LOCATION_SIZE_VALID(  -1,   2,   4,   4);
+	MACRO_GM_LOCATION_SIZE_VALID(   2,  -1,   4,   4);
+	MACRO_GM_LOCATION_SIZE_VALID(-126, 644, 145, 256);
+	MACRO_GM_LOCATION_SIZE_VALID(   2,   0,  14,  14);
+	MACRO_GM_LOCATION_SIZE_VALID(   4,   4,  14,  14);
+	MACRO_GM_LOCATION_SIZE_VALID(  14,  14,  28,  28);
 }
