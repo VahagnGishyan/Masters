@@ -23,10 +23,10 @@ namespace Masters
 			class MT_CSUB_CINT_EXPORT CInt
 			{
 			public: // typedefs
-				using value_t = int;
+				using ValueType = int;
 
 			public: // ctor/dector
-				CInt(const value_t value = 0)	noexcept;
+				CInt(const ValueType value = 0)	noexcept;
 				CInt(const CInt& obj)			noexcept;
 				CInt(CInt&& obj)				noexcept;
 
@@ -38,12 +38,13 @@ namespace Masters
 				void operator=(const CInt&  obj) noexcept;
 				void operator=(      CInt&& obj) noexcept;
 
-			public: // get 
-				const value_t value()              const { return (m_value); }
-			protected: // set
-				void          value(const value_t value) { m_value = value; }
+				operator ValueType() const { return (value()); }
+
+			protected: // get, set
+				const ValueType value()              const { return (m_value); }
+				void          value(const ValueType value) { m_value = value; }
 			private: // mem vars
-				value_t m_value;
+				ValueType m_value;
 			};
 		}
 	}
@@ -54,7 +55,7 @@ namespace Masters
 MASTERS_EXPORT class ClassName : public Masters::CSmart::FundamentalTypes::CInt                       \
 {                                                                                      \
 public: /* ctor/dector*/                                                               \
-	ClassName(const value_t value = 0) noexcept : CInt(value) {}                       \
+	ClassName(const ValueType value = 0) noexcept : CInt(value) {}                       \
 	ClassName(const ClassName& obj)    noexcept : CInt(obj)   {}                       \
 	ClassName(ClassName&& obj)         noexcept : CInt(obj)   {}                       \
 public: /* operators */                                                                \
@@ -65,7 +66,7 @@ ClassName& operator= (const ClassName& obj) noexcept         \
 	value(obj.value());                                                 \
 	return *this;                                                       \
 }                                                                       \
-ClassName& operator= (const value_t value) noexcept          \
+ClassName& operator= (const ValueType value) noexcept          \
 {                                                                       \
 	this->value(value);                                                 \
 	return *this;                                                       \
@@ -77,19 +78,20 @@ ClassName& operator= (ClassName&& obj) noexcept              \
 	value(obj.value());                                                 \
 	return *this;                                                       \
 }                                                                       \
+    operator ValueType() const { return (value()); }                      \
                                                                                        \
-	MASTERS_EXPORT friend bool operator== (const ClassName &l, const ClassName &r);    \
-    MASTERS_EXPORT friend bool operator!= (const ClassName &l, const ClassName &r);    \
-                                                                                       \
-    MASTERS_EXPORT friend bool operator> (const ClassName &l, const ClassName &r);     \
-    MASTERS_EXPORT friend bool operator< (const ClassName &l, const ClassName &r);     \
-                                                                                       \
-    MASTERS_EXPORT friend bool operator>= (const ClassName &l, const ClassName &r);    \
-    MASTERS_EXPORT friend bool operator<= (const ClassName &l, const ClassName &r);    \
+	/*MASTERS_EXPORT friend bool operator== (const ClassName &l, const ClassName &r);*/    \
+    /*MASTERS_EXPORT friend bool operator!= (const ClassName &l, const ClassName &r);*/    \
+    /*                                                                               */    \
+    /*MASTERS_EXPORT friend bool operator> (const ClassName &l, const ClassName &r); */    \
+    /*MASTERS_EXPORT friend bool operator< (const ClassName &l, const ClassName &r); */    \
+    /*                                                                               */    \
+    /*MASTERS_EXPORT friend bool operator>= (const ClassName &l, const ClassName &r);*/    \
+    /*MASTERS_EXPORT friend bool operator<= (const ClassName &l, const ClassName &r);*/    \
 };                                                                      
 
 #define MacroClassIntImp(ClassName)                                     \
-                                                                        \
+//                                                                        \
 bool operator== (const ClassName& l, const ClassName& r)                \
 {                                                                       \
 	return (l.value() == r.value());                                    \
@@ -118,55 +120,55 @@ bool operator<= (const ClassName& l, const ClassName& r)                \
 }                                                                       \
 
 /*
-bool operator== (const value_t value) const                         \
+bool operator== (const ValueType value) const                         \
 	{                                                                   \
 		return (this->value() == value);                                \
 	};                                                                  \
-	bool operator!= (const value_t value) const                         \
+	bool operator!= (const ValueType value) const                         \
 	{                                                                   \
 		return (this->value() != value);                                \
 	};                                                                  \
 																		\
-	bool operator>= (const value_t value) const                         \
+	bool operator>= (const ValueType value) const                         \
 	{                                                                   \
 		return (this->value() >= value);                                \
 	};                                                                  \
-	bool operator<= (const value_t value) const                         \
+	bool operator<= (const ValueType value) const                         \
 	{                                                                   \
 		return (this->value() <= value);                                \
 	};                                                                  \
 																		\
-	bool operator> (const value_t value) const                          \
+	bool operator> (const ValueType value) const                          \
 	{                                                                   \
 		return (this->value() >  value);                                \
 	};                                                                  \
-	bool operator< (const value_t value) const                          \
+	bool operator< (const ValueType value) const                          \
 	{                                                                   \
 		return (this->value() <  value);                                \
 	};                                                                  \
 */
 
-//friend bool operator== (const ClassName& l, const value_t& r);      \
-//friend bool operator== (const value_t& l, const ClassName& r);      \
+//friend bool operator== (const ClassName& l, const ValueType& r);      \
+//friend bool operator== (const ValueType& l, const ClassName& r);      \
 //bool operator== (const ClassName& l, const ClassName& r)                \
 //{                                                                       \
 //    return (l.value() == r.value());                                    \
 //}                                                                       \
-//bool operator== (const ClassName& l, const ClassName::value_t& r)       \
+//bool operator== (const ClassName& l, const ClassName::ValueType& r)       \
 //{                                                                       \
 //    return (l.value() == r);                                            \
 //}                                                                       \
-//bool operator== (const ClassName::value_t& l, const ClassName& r)       \
+//bool operator== (const ClassName::ValueType& l, const ClassName& r)       \
 //{                                                                       \
 //	return (l == r.value());                                            \
 //}                                         							    \
-//friend bool operator!= (const ClassName &l, const value_t &r);      \
-//friend bool operator!= (const value_t &l, const ClassName &r);      \
-//bool operator!= (const ClassName& l, const ClassName::value_t& r)       \
+//friend bool operator!= (const ClassName &l, const ValueType &r);      \
+//friend bool operator!= (const ValueType &l, const ClassName &r);      \
+//bool operator!= (const ClassName& l, const ClassName::ValueType& r)       \
 //{                                                                       \
 //	return (l.value() != r);                                            \
 //}                                                                       \
-//bool operator!= (const ClassName::value_t& l, const ClassName& r)       \
+//bool operator!= (const ClassName::ValueType& l, const ClassName& r)       \
 //{                                                                       \
 //	return (l != r.value());                                            \
 //}                                         							    \

@@ -10,9 +10,9 @@ namespace Masters
 	{
 		namespace FundamentalTypes
 		{
-			CInt::CInt(const value_t value) noexcept : m_value(value) {}
-			CInt::CInt(const CInt& obj)		noexcept : m_value(obj.m_value) {}
-			CInt::CInt(CInt&& obj)          noexcept : m_value(obj.m_value) {}
+			CInt::CInt(const ValueType value) noexcept : m_value(value)       {}
+			CInt::CInt(const CInt& obj)		  noexcept : m_value(obj.m_value) {}
+			CInt::CInt(CInt&& obj)            noexcept : m_value(obj.m_value) {}
 
 			CInt::~CInt() {}
 		

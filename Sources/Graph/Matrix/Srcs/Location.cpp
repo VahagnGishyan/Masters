@@ -57,7 +57,7 @@ namespace Masters
 
 				bool Location::isValid(const CLocation& loc, const CSizes& sizes) noexcept
 				{
-					return (isValid(loc) && ((loc.ordinate() < sizes.height().value()) && (loc.abscissa() < sizes.height().value())));
+					return (isValid(loc) && ((loc.ordinate() < (int)(sizes.height())) && (loc.abscissa() < (int)(sizes.height()))));
 				}
 			}
 

@@ -51,16 +51,6 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CAbscissa)
 		ASSERT_TRUE(obj.ordinate() == OrdValue);		\
 		ASSERT_TRUE(obj.abscissa() == AbsValue);		\
 	}													\
-	{												    \
-		CLocation obj(Location::COrdinate(OrdValue),	\
-					  Location::CAbscissa(AbsValue));	\
-													    \
-		ASSERT_EQ(obj.ordinate(), OrdValue);			\
-		ASSERT_EQ(obj.abscissa(), AbsValue);			\
-														\
-		ASSERT_TRUE(obj.ordinate() == OrdValue);		\
-		ASSERT_TRUE(obj.abscissa() == AbsValue);		\
-	}													\
 }
 
 #define MACRO_GM_LOCATION_INIT_EQ(OrdValue, AbsValue)	\

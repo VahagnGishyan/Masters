@@ -25,6 +25,9 @@
       <Filter>Graph\Matrix</Filter>
     </ClInclude>
     <ClInclude Include="GTest.hpp" />
+    <ClInclude Include="Graph\Matrix\Edge.hpp">
+      <Filter>Graph\Matrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

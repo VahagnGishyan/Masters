@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSmart\Int.hpp" />
+    <ClInclude Include="Graph\Matrix\Edge.hpp" />
     <ClInclude Include="Graph\Matrix\Location.hpp" />
     <ClInclude Include="Graph\Matrix\Sizes.hpp" />
     <ClInclude Include="GTest.hpp" />

@@ -15,33 +15,33 @@ using namespace Masters::CSmart::FundamentalTypes;
 
 TEST(CSmartCInt, ClassCInt)
 {
-	{ CInt obj; EXPECT_EQ(obj.value(), 0); }
+	{ CInt obj; EXPECT_EQ(obj, 0); }
 
-	{ constexpr int  value =  0;  CInt obj(value); EXPECT_EQ(obj.value(), value); }
-	{ constexpr int  value =  1;  CInt obj(value); EXPECT_EQ(obj.value(), value); }
-	{ constexpr int  value =  2;  CInt obj(value); EXPECT_EQ(obj.value(), value); }
-	{ constexpr int  value = -1;  CInt obj(value); EXPECT_EQ(obj.value(), value); }
-	{ constexpr int  value = -2;  CInt obj(value); EXPECT_EQ(obj.value(), value); }
+	{ constexpr int  value =  0;  CInt obj(value); EXPECT_EQ(obj, value); }
+	{ constexpr int  value =  1;  CInt obj(value); EXPECT_EQ(obj, value); }
+	{ constexpr int  value =  2;  CInt obj(value); EXPECT_EQ(obj, value); }
+	{ constexpr int  value = -1;  CInt obj(value); EXPECT_EQ(obj, value); }
+	{ constexpr int  value = -2;  CInt obj(value); EXPECT_EQ(obj, value); }
 
 	
-	{ const     CInt value =  0;  CInt obj(value); EXPECT_TRUE(obj.value() == value.value()); }
-	{ const     CInt value =  1;  CInt obj(value); EXPECT_TRUE(obj.value() == value.value()); }
-	{ const     CInt value =  2;  CInt obj(value); EXPECT_TRUE(obj.value() == value.value()); }
-	{ const     CInt value = -1;  CInt obj(value); EXPECT_TRUE(obj.value() == value.value()); }
-	{ const     CInt value = -2;  CInt obj(value); EXPECT_TRUE(obj.value() == value.value()); }
+	{ const     CInt value =  0;  CInt obj(value); EXPECT_TRUE((int)obj == value); }
+	{ const     CInt value =  1;  CInt obj(value); EXPECT_TRUE((int)obj == value); }
+	{ const     CInt value =  2;  CInt obj(value); EXPECT_TRUE((int)obj == value); }
+	{ const     CInt value = -1;  CInt obj(value); EXPECT_TRUE((int)obj == value); }
+	{ const     CInt value = -2;  CInt obj(value); EXPECT_TRUE((int)obj == value); }
 
-	{ constexpr int value  =  0;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj.value(), value); }
-	{ constexpr int value  =  1;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj.value(), value); }
-	{ constexpr int value  =  2;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj.value(), value); }
-	{ constexpr int value  = -1;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj.value(), value); }
-	{ constexpr int value  = -2;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj.value(), value); }
+	{ constexpr int value  =  0;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj, value); }
+	{ constexpr int value  =  1;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj, value); }
+	{ constexpr int value  =  2;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj, value); }
+	{ constexpr int value  = -1;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj, value); }
+	{ constexpr int value  = -2;  CInt obj(std::move(CInt(value))); EXPECT_EQ(obj, value); }
 }
 
 #define MACRO_CSMART_NOINIT_EQ(MacroType, MacroValue)     \
 {                                                         \
 	MacroType obj;                                        \
 	obj = MacroType(MacroValue);                          \
-	EXPECT_EQ(obj.value(), MacroValue);					  \
+	EXPECT_EQ(obj, MacroValue);					  \
 	EXPECT_TRUE(obj == MacroValue);					      \
 }
 
@@ -49,18 +49,18 @@ TEST(CSmartCInt, ClassCInt)
 {                                                         \
 	{                                                     \
 		MacroType obj;                                    \
-		obj.operator=(MacroValue);                        \
+		obj = (MacroValue);                        \
 		EXPECT_TRUE(obj == MacroValue);                   \
 	}                                                     \
 	{                                                     \
 		MacroType obj;                                    \
 		MacroType dup = MacroValue;                       \
-		obj.operator=(dup);                               \
+		obj = (dup);                                      \
 		EXPECT_TRUE(obj == MacroValue);					  \
 	}                                                     \
 	{                                                     \
 		MacroType obj;                                    \
-		obj.operator=(std::move(MacroType(MacroValue)));  \
+		obj = std::move(MacroType(MacroValue));           \
 		EXPECT_TRUE(obj == MacroValue);                   \
 	}                                                     \
 }
