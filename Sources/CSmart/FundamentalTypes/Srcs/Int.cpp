@@ -24,6 +24,33 @@ namespace Masters
 			{
 				this->m_value = obj.m_value;
 			}
+
+			bool operator== (const CInt& l, const CInt& r)
+			{
+				return (l.value() == r.value());
+			}
+			bool operator!= (const CInt& l, const CInt& r)
+			{
+				return (l.value() != r.value());
+			}
+
+			bool operator> (const CInt& l, const CInt& r)
+			{
+				return (l.value() > r.value());
+			}
+			bool operator< (const CInt& l, const CInt& r)
+			{
+				return (l.value() < r.value());
+			}
+
+			bool operator>= (const CInt& l, const CInt& r)
+			{
+				return (l.value() >= r.value());
+			}
+			bool operator<= (const CInt& l, const CInt& r)
+			{
+				return (l.value() <= r.value());
+			}
 		}
 	}
 }

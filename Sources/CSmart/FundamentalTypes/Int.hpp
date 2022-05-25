@@ -38,7 +38,16 @@ namespace Masters
 				void operator=(const CInt&  obj) noexcept;
 				void operator=(      CInt&& obj) noexcept;
 
-				operator ValueType() const { return (value()); }
+				explicit operator ValueType() const { return (value()); }
+
+				MASTERS_EXPORT friend bool operator== (const CInt& l, const CInt& r);
+				MASTERS_EXPORT friend bool operator!= (const CInt& l, const CInt& r);
+
+				MASTERS_EXPORT friend bool operator> (const CInt& l, const CInt& r);
+				MASTERS_EXPORT friend bool operator< (const CInt& l, const CInt& r);
+
+				MASTERS_EXPORT friend bool operator>= (const CInt& l, const CInt& r);
+				MASTERS_EXPORT friend bool operator<= (const CInt& l, const CInt& r);
 
 			protected: // get, set
 				const ValueType value()              const { return (m_value); }
@@ -78,20 +87,20 @@ ClassName& operator= (ClassName&& obj) noexcept              \
 	value(obj.value());                                                 \
 	return *this;                                                       \
 }                                                                       \
-    operator ValueType() const { return (value()); }                      \
+    explicit operator ValueType() const { return (value()); }           \
                                                                                        \
-	/*MASTERS_EXPORT friend bool operator== (const ClassName &l, const ClassName &r);*/    \
-    /*MASTERS_EXPORT friend bool operator!= (const ClassName &l, const ClassName &r);*/    \
-    /*                                                                               */    \
-    /*MASTERS_EXPORT friend bool operator> (const ClassName &l, const ClassName &r); */    \
-    /*MASTERS_EXPORT friend bool operator< (const ClassName &l, const ClassName &r); */    \
-    /*                                                                               */    \
-    /*MASTERS_EXPORT friend bool operator>= (const ClassName &l, const ClassName &r);*/    \
-    /*MASTERS_EXPORT friend bool operator<= (const ClassName &l, const ClassName &r);*/    \
+	MASTERS_EXPORT friend bool operator== (const ClassName &l, const ClassName &r);    \
+    MASTERS_EXPORT friend bool operator!= (const ClassName &l, const ClassName &r);    \
+                                                                                       \
+    MASTERS_EXPORT friend bool operator> (const ClassName &l, const ClassName &r);     \
+    MASTERS_EXPORT friend bool operator< (const ClassName &l, const ClassName &r);     \
+                                                                                       \
+    MASTERS_EXPORT friend bool operator>= (const ClassName &l, const ClassName &r);    \
+    MASTERS_EXPORT friend bool operator<= (const ClassName &l, const ClassName &r);    \
 };                                                                      
 
 #define MacroClassIntImp(ClassName)                                     \
-//                                                                        \
+                                                                        \
 bool operator== (const ClassName& l, const ClassName& r)                \
 {                                                                       \
 	return (l.value() == r.value());                                    \
