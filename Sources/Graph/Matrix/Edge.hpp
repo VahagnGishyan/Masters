@@ -28,12 +28,13 @@ namespace Masters
 				MT_MATRIX_CEDGE_EXPORT MacroClassInt(CWeight);
 			}
 
-			class CEdge
+			class MT_MATRIX_CEDGE_EXPORT CEdge
 			{
-			private: // typedefs
+			protected: // typedefs
 				using CWeight  = Edge::CWeight;
 
 			public: // ctor/dector
+				CEdge();
 				CEdge(const CLocation& node,  const CWeight&  weight);
 				CEdge(      CLocation&& node,       CWeight&& weight);
 				virtual ~CEdge();
@@ -53,11 +54,10 @@ namespace Masters
 				CLocation m_node;   // to
 			};
 
-			class CFullEdge 
-			{
-			private: // typedefs
-				using CWeight = Edge::CWeight;
+			using CEdgeList = std::vector<CEdge>;
 
+			class /*MT_MATRIX_CEDGE_EXPORT*/ CFullEdge /*notest*/ : public CEdge
+			{
 			public: // ctor/dector
 				CFullEdge(const CLocation&  m_root, const CLocation&  node, const CWeight&  weight);
 				CFullEdge(      CLocation&& m_root,       CLocation&& node,       CWeight&& weight);
@@ -69,26 +69,17 @@ namespace Masters
 
 			public: // get set
 		        const CLocation root() const noexcept;
-		        const CLocation node() const noexcept;
-		        const CWeight   weight() const noexcept;
 
 				void root  (const CLocation&  nodeIndex)  noexcept;
 				void root  (      CLocation&& nodeIndex)  noexcept;
-				void node  (const CLocation&  nodeIndex)  noexcept;
-				void node  (      CLocation&& nodeIndex)  noexcept;
-				void weight(const CWeight&    edgeWeight) noexcept;
-				void weight(      CWeight&&   edgeWeight) noexcept;
 
 			private: // member vars
 				CLocation m_root;   // from
-				CEdge     m_edge;
 			};
-
-			using CEdgeList = std::vector<CEdge>;
 
 			namespace Edge
 			{
-				bool isValid(const CEdge& edge) noexcept;
+				bool MT_MATRIX_CEDGE_EXPORT isValid(const CEdge& edge) noexcept;
 			}
 		}
 	}
