@@ -68,9 +68,9 @@ namespace Masters
 				virtual ~CFullEdge();
 
 			public: // get set
-				const CLocation root() const noexcept;
-				const CLocation node() const noexcept;
-				const CWeight   weight() const noexcept;
+		        const CLocation root() const noexcept;
+		        const CLocation node() const noexcept;
+		        const CWeight   weight() const noexcept;
 
 				void root  (const CLocation&  nodeIndex)  noexcept;
 				void root  (      CLocation&& nodeIndex)  noexcept;
