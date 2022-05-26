@@ -53,11 +53,6 @@ namespace Masters
 				CLocation m_node;   // to
 			};
 
-			class CFullEdgeRef
-			{
-
-			};
-
 			class CFullEdge 
 			{
 			private: // typedefs
