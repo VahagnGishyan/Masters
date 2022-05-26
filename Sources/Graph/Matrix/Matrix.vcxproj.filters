@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Sizes.hpp" />
+    <ClInclude Include="Vertex.hpp" />
+    <ClInclude Include="Creator.hpp" />
+    <ClInclude Include="Edge.hpp" />
+    <ClInclude Include="Location.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Srcs">
+      <UniqueIdentifier>{c9850803-c7e1-40c0-8547-290f16c652cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Srcs\Location.cpp">
+      <Filter>Srcs</Filter>
+    </ClCompile>
+    <ClCompile Include="Srcs\Sizes.cpp">
+      <Filter>Srcs</Filter>
+    </ClCompile>
+    <ClCompile Include="Srcs\Edge.cpp">
+      <Filter>Srcs</Filter>
+    </ClCompile>
+    <ClCompile Include="Srcs\Vertex.cpp">
+      <Filter>Srcs</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
