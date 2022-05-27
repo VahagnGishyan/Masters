@@ -54,7 +54,8 @@ namespace Masters
 				CLocation m_node;   // to
 			};
 
-			class /*MT_MATRIX_CEDGE_EXPORT*/ CFullEdge /*notest*/ : public CEdge
+			/*temp, notest*/
+			class /*MT_MATRIX_CEDGE_EXPORT*/ CFullEdge: public CEdge /*temp, check is root neighborhood node*/
 			{
 			public: // ctor/dector
 				CFullEdge(const CLocation&  m_root, const CLocation&  node, const CWeight&  weight);
@@ -78,7 +79,7 @@ namespace Masters
 			using CEdgeList     = std::vector<CEdge>;
 			using CFullEdgeList = std::vector<CFullEdge>;
 
-			namespace Edge
+			namespace Edge 
 			{
 				bool MT_MATRIX_CEDGE_EXPORT isValid(const CEdge& edge) noexcept;
 			}
