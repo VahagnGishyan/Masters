@@ -4,13 +4,14 @@
 
 #include "../../GTest.hpp"
 #include "../../CSmart/Int.hpp"
-#include "Masters/Graph/Matrix/Edge.hpp"
+#include "Masters/Graph/Matrix/Vertex/Edge.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using namespace Masters;
 using namespace Masters::Graph::Matrix;
-using namespace Masters::Graph::Matrix::Edge;
+using namespace Masters::Graph::Matrix::Vertex;
+using namespace Masters::Graph::Matrix::Vertex::Edge;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 

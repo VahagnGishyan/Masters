@@ -4,13 +4,14 @@
 
 #include "../../GTest.hpp"
 #include "../../CSmart/Int.hpp"
-#include "Masters/Graph/Matrix/Location.hpp"
+#include "Masters/Graph/Matrix/Vertex/Location.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using namespace Masters;
 using namespace Masters::Graph::Matrix;
-using namespace Masters::Graph::Matrix::Location;
+using namespace Masters::Graph::Matrix::Vertex;
+using namespace Masters::Graph::Matrix::Vertex::Location;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 

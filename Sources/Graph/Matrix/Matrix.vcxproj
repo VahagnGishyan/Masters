@@ -20,18 +20,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Creator.hpp" />
-    <ClInclude Include="Edge.hpp" />
-    <ClInclude Include="Location.hpp" />
     <ClInclude Include="Sizes.hpp" />
     <ClInclude Include="Type.hpp" />
     <ClInclude Include="Vertex.hpp" />
+    <ClInclude Include="Vertex\Edge.hpp" />
+    <ClInclude Include="Vertex\Location.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Srcs\Edge.cpp" />
-    <ClCompile Include="Srcs\Location.cpp" />
     <ClCompile Include="Srcs\Sizes.cpp" />
     <ClCompile Include="Srcs\Type.cpp" />
     <ClCompile Include="Srcs\Vertex.cpp" />
+    <ClCompile Include="Vertex\Srcs\Edge.cpp" />
+    <ClCompile Include="Vertex\Srcs\Location.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
