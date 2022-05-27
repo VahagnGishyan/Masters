@@ -39,15 +39,15 @@ namespace Masters
 				using EWeighing  = Type::EWeighing;
 
 			public: // ctor dector
-				SType(const EDirection dir, const EWeighing weigh) : m_dir(dir), m_weigh(weigh) {}
-				~SType() {}
+				SType(const EDirection dir, const EWeighing weigh);
+				~SType();
 
 			public: // get set
-				EDirection direction()                const noexcept { return (m_dir); }
-				EWeighing  weighing()                 const noexcept { return (m_weigh); }
+				EDirection direction()                const noexcept;
+				EWeighing  weighing()                 const noexcept;
 
-				void       direction(const EDirection dir)  noexcept { m_dir = dir; }
-				void       weighing(const EWeighing weigh) noexcept { m_weigh = weigh; }
+				void       direction(const EDirection dir)  noexcept;
+				void       weighing(const EWeighing weigh)  noexcept;
 
 			private: // members
 				EDirection m_dir;
