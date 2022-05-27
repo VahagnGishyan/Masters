@@ -13,6 +13,7 @@
 namespace Masters
 {
 	const std::string MASTERS_EXPORT getenv(const std::string envName);
+	const bool        MASTERS_EXPORT isGUTestDetailsOn();
 }
 
 //////////////////////////////////////////////////////////////////////////

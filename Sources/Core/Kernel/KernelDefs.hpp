@@ -17,9 +17,13 @@
 //////////////////////////////////////////////////////////////////////////
 
 #define DEBUG_MODE
-#define EV_NAME_DEBUG_LOG_SET	"DEBUG_LOG_SET"
-#define EV_VALUE_DEBUG_LOG_ON	"ON"
-#define EV_VALUE_DEBUG_LOG_OFF	"OFF"
+#define EV_NM_DEBUG_LOG_SET "DEBUG_LOG_SET"
+#define EV_VL_DEBUG_LOG_ON  "ON"
+#define EV_VL_DEBUG_LOG_OFF "OFF"
+
+#define ENV_NM_GUTEST_DETAIL_SET "GUTEST_DETAILS_SET"
+#define ENV_VL_GUTEST_DETAIL_ON  "ON"
+#define ENV_VL_GUTEST_DETAIL_OFF "OFF"
 
 //////////////////////////////////////////////////////////////////////////
 

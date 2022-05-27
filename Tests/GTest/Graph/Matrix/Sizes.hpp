@@ -195,7 +195,10 @@ TEST(GraphMatrixSizes, Ctor)
 {
 	MACRO_GTEST_SIZE_AUTO(MACRO_GM_SIZE_NOINIT_EQ);
 	MACRO_GTEST_SIZE_AUTO(MACRO_GM_SIZE_INIT_EQ);
-	MACRO_GTEST_SIZE_NEG;
+	if (isGUTestDetailsOn())
+	{
+		MACRO_GTEST_SIZE_NEG;
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
