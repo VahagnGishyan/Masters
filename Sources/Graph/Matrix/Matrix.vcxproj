@@ -27,6 +27,7 @@
     <ClInclude Include="Vertex\Location.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Srcs\Creator.cpp" />
     <ClCompile Include="Srcs\Sizes.cpp" />
     <ClCompile Include="Srcs\Type.cpp" />
     <ClCompile Include="Srcs\Vertex.cpp" />

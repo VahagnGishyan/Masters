@@ -39,5 +39,8 @@
     <ClCompile Include="Vertex\Srcs\Location.cpp">
       <Filter>Vertex\Srcs</Filter>
     </ClCompile>
+    <ClCompile Include="Srcs\Creator.cpp">
+      <Filter>Srcs</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
