@@ -6,8 +6,8 @@
 
 //////////////////////////////////////////////////////////////////////////
 
-#include "Location.hpp"
-#include "Edge.hpp"
+#include "Vertex\Location.hpp"
+#include "Vertex\Edge.hpp"
 //#include "CNManager.hpp"
 
 //////////////////////////////////////////////////////////////////////////
@@ -20,8 +20,6 @@ namespace Masters
 {
 	namespace Graph
 	{
-
-
 		namespace Matrix
 		{
 			namespace Vertex
@@ -46,7 +44,9 @@ namespace Masters
 			public: // typedefs
 				using UUniqueID = Graph::Matrix::Vertex::Index;
 				using CProperty = Graph::Matrix::Vertex::CProperty;
-				using CEdge     = Graph::Matrix::CEdge;
+				using CEdge     = Graph::Matrix::Vertex::CEdge;
+				using CEdgeList = Graph::Matrix::Vertex::CEdgeList;
+				using CLocation = Graph::Matrix::Vertex::CLocation;
 
 			public: // ctor/dector
 

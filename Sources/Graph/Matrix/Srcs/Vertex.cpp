@@ -18,7 +18,7 @@ namespace Masters
 			CVertex::~CVertex()                                                        {}
 
 			// location
-			const CLocation& CVertex::location()                         const noexcept
+			const Vertex::CLocation & CVertex::location()                         const noexcept
 			{
 				return (m_location);
 			}
@@ -38,7 +38,7 @@ namespace Masters
 			}
 
 			// edge list
-			const CEdgeList& CVertex::edgeList()                         const noexcept
+			const Vertex::CEdgeList& CVertex::edgeList()                         const noexcept
 			{
 				return (m_edgeList);
 			}
@@ -50,7 +50,7 @@ namespace Masters
 			{
 				m_edgeList.push_back(edge);
 			}
-			const CEdge&     CVertex::getEdge (const int index)          const noexcept
+			const Vertex::CEdge&     CVertex::getEdge (const int index)          const noexcept
 			{
 				return (m_edgeList[index]);
 			}
