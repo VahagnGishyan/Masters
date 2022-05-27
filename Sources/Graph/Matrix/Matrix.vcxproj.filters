@@ -6,6 +6,7 @@
     <ClInclude Include="Creator.hpp" />
     <ClInclude Include="Edge.hpp" />
     <ClInclude Include="Location.hpp" />
+    <ClInclude Include="Type.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Srcs">
@@ -23,6 +24,9 @@
       <Filter>Srcs</Filter>
     </ClCompile>
     <ClCompile Include="Srcs\Vertex.cpp">
+      <Filter>Srcs</Filter>
+    </ClCompile>
+    <ClCompile Include="Srcs\Type.cpp">
       <Filter>Srcs</Filter>
     </ClCompile>
   </ItemGroup>

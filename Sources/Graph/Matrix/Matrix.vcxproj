@@ -23,12 +23,14 @@
     <ClInclude Include="Edge.hpp" />
     <ClInclude Include="Location.hpp" />
     <ClInclude Include="Sizes.hpp" />
+    <ClInclude Include="Type.hpp" />
     <ClInclude Include="Vertex.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Srcs\Edge.cpp" />
     <ClCompile Include="Srcs\Location.cpp" />
     <ClCompile Include="Srcs\Sizes.cpp" />
+    <ClCompile Include="Srcs\Type.cpp" />
     <ClCompile Include="Srcs\Vertex.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

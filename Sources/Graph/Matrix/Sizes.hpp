@@ -27,17 +27,17 @@ namespace Masters
 				MacroClassInt(CLength);
 			}
 
-			class MT_MATRIX_CSIZES_EXPORT CSizes
+			class MT_MATRIX_CSIZES_EXPORT CSize
 			{
 				using CHeight = Sizes::CHeight;
 				using CLength = Sizes::CLength;
 
 			public: // ctor/dector
-				CSizes();
-				CSizes(const CHeight& height, const CLength& length) /*except { std::string } */;
-				CSizes(CHeight&& height, CLength&& length)           /*except { std::string } */;
-				CSizes(int, int) = delete;
-				virtual ~CSizes();
+				CSize();
+				CSize(const CHeight& height, const CLength& length) /*except { std::string } */;
+				CSize(CHeight&& height, CLength&& length)           /*except { std::string } */;
+				CSize(int, int) = delete;
+				virtual ~CSize();
 
 			public: // public geter seter
 				void height(const CHeight& height) noexcept;
@@ -50,8 +50,8 @@ namespace Masters
 				const CLength length() const       noexcept;
 
 			public: // operators
-				friend bool MT_MATRIX_CSIZES_EXPORT operator== (const CSizes& left, const CSizes& right) noexcept;
-				friend bool MT_MATRIX_CSIZES_EXPORT operator!= (const CSizes& left, const CSizes& right) noexcept;
+				friend bool MT_MATRIX_CSIZES_EXPORT operator== (const CSize& left, const CSize& right) noexcept;
+				friend bool MT_MATRIX_CSIZES_EXPORT operator!= (const CSize& left, const CSize& right) noexcept;
 
 			private: // member vars
 				CHeight m_height;
@@ -60,7 +60,7 @@ namespace Masters
 
 			namespace Sizes
 			{
-				bool MT_MATRIX_CSIZES_EXPORT isValid(const CSizes& loc) noexcept;
+				bool MT_MATRIX_CSIZES_EXPORT isValid(const CSize& loc) noexcept;
 			}
 		}
 	}

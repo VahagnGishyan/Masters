@@ -64,7 +64,7 @@ namespace Masters
 			namespace Location
 			{
 				bool MT_MATRIX_CLOCATION_EXPORT isValid(const CLocation& loc) noexcept;
-				bool MT_MATRIX_CLOCATION_EXPORT isValid(const CLocation& loc, const CSizes& sizes) noexcept;
+				bool MT_MATRIX_CLOCATION_EXPORT isValid(const CLocation& loc, const CSize& sizes) noexcept;
 			}
 		}
 	}

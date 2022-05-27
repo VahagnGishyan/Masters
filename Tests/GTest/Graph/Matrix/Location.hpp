@@ -149,7 +149,7 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CAbscissa)
 	CLocation obj(Location::COrdinate(OrdValue),                             \
 				  Location::CAbscissa(AbsValue));                            \
 		                                                                     \
-	CSizes sizes(Sizes::CHeight(HgtValue),                                   \
+	CSize sizes(Sizes::CHeight(HgtValue),                                   \
 	             Sizes::CLength(LgtValue));	                                 \
 		                                                                     \
 	if (((OrdValue < 0) || (AbsValue < 0)) ||                                \

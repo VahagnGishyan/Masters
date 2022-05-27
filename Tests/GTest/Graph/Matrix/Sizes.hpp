@@ -35,7 +35,7 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 #define MACRO_GM_SIZE_NOINIT_EQ(HtValue, LtValue)   \
 {														\
 	{													\
-		CSizes obj;									    \
+		CSize obj;									    \
 		obj.height(HtValue);							\
 		obj.length(LtValue);							\
 														\
@@ -46,7 +46,7 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 		ASSERT_TRUE(obj.length() == LtValue);		    \
 	}													\
 	{												    \
-		CSizes obj(Sizes::CHeight(HtValue),	            \
+		CSize obj(Sizes::CHeight(HtValue),	            \
 					  Sizes::CLength(LtValue));	        \
 													    \
 		ASSERT_EQ(obj.height(), HtValue);			    \
@@ -60,7 +60,7 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 #define MACRO_GM_SIZE_INIT_EQ(HtValue, LtValue)	        \
 {														\
 	{													\
-		CSizes obj(Sizes::CHeight(HtValue),				\
+		CSize obj(Sizes::CHeight(HtValue),				\
 			Sizes::CLength(LtValue));				    \
 														\
 		ASSERT_EQ(obj.height(), HtValue);			    \
@@ -70,7 +70,7 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 		ASSERT_TRUE(obj.length() == LtValue);	    	\
 	}													\
 	{												    \
-		CSizes obj(Sizes::CHeight(HtValue),            	\
+		CSize obj(Sizes::CHeight(HtValue),            	\
 					  Sizes::CLength(LtValue));        	\
 													    \
 		ASSERT_EQ(obj.height(), HtValue);		    	\
@@ -87,7 +87,7 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 		bool bExcept = false;						    \
 		try												\
 		{												\
-			CSizes obj(Sizes::CHeight(HtValue),         \
+			CSize obj(Sizes::CHeight(HtValue),         \
 				       Sizes::CLength(LtValue));	    \
 		}												\
 		catch(const std::string&)					    \
@@ -114,7 +114,7 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 #define MACRO_GM_SIZE_GET_SET(HtValue, LtValue)         \
 {													    \
 	{												    \
-		CSizes obj;								        \
+		CSize obj;								        \
 		obj.height(HtValue);						    \
 		obj.length(LtValue);						    \
 													    \
@@ -125,7 +125,7 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 		ASSERT_TRUE(obj.length() == LtValue);	        \
 	}												    \
 	{												    \
-		CSizes obj;								        \
+		CSize obj;								        \
 		obj.height(std::move(CHeight(HtValue)));        \
 		obj.length(std::move(CLength(LtValue)));        \
 													    \
@@ -139,29 +139,29 @@ MACRO_GTEST_CLASS_INT(GraphMatrix, CLength)
 
 #define MACRO_GM_SIZE_OPERATORS(HtValue, LtValue)               \
 {																\
-	const CSizes obj         (Sizes::CHeight(HtValue),			\
+	const CSize obj         (Sizes::CHeight(HtValue),			\
 							  Sizes::CLength(LtValue));			\
 																\
-	EXPECT_TRUE(obj == CSizes(Sizes::CHeight(HtValue),          \
+	EXPECT_TRUE(obj == CSize(Sizes::CHeight(HtValue),          \
 							  Sizes::CLength(LtValue)));		\
 																\
-	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue),			\
+	EXPECT_TRUE(obj != CSize(Sizes::CHeight(HtValue),			\
 							  Sizes::CLength(LtValue + 1)));    \
-	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue),			\
+	EXPECT_TRUE(obj != CSize(Sizes::CHeight(HtValue),			\
 							  Sizes::CLength(LtValue + 21)));   \
-	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue + 1),      \
+	EXPECT_TRUE(obj != CSize(Sizes::CHeight(HtValue + 1),      \
 							  Sizes::CLength(LtValue)));        \
-	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue + 1),      \
+	EXPECT_TRUE(obj != CSize(Sizes::CHeight(HtValue + 1),      \
 							  Sizes::CLength(LtValue + 1)));    \
-	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue + 656),    \
+	EXPECT_TRUE(obj != CSize(Sizes::CHeight(HtValue + 656),    \
 							  Sizes::CLength(LtValue + 4545))); \
-	EXPECT_TRUE(obj != CSizes(Sizes::CHeight(HtValue + 1655),   \
+	EXPECT_TRUE(obj != CSize(Sizes::CHeight(HtValue + 1655),   \
 							  Sizes::CLength(LtValue + 959)));  \
 }
 
 #define MACRO_GM_SIZE_VALID(HtValue, LtValue)   \
 {                                               \
-	CSizes obj(Sizes::CHeight(HtValue + 1655),  \
+	CSize obj(Sizes::CHeight(HtValue + 1655),  \
 			   Sizes::CLength(LtValue + 959));  \
 	if (HtValue < 0 || LtValue < 0)             \
 	{                                           \
@@ -180,7 +180,7 @@ TEST(GraphMatrixSizes, CtorEmpty)
 	constexpr int defValue = 0;
 
 	// Empty
-	CSizes obj;
+	CSize obj;
 
 	ASSERT_EQ(obj.height(), defValue);
 	ASSERT_EQ(obj.length(), defValue);

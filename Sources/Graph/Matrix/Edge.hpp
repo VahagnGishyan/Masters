@@ -54,8 +54,6 @@ namespace Masters
 				CLocation m_node;   // to
 			};
 
-			using CEdgeList = std::vector<CEdge>;
-
 			class /*MT_MATRIX_CEDGE_EXPORT*/ CFullEdge /*notest*/ : public CEdge
 			{
 			public: // ctor/dector
@@ -76,6 +74,9 @@ namespace Masters
 			private: // member vars
 				CLocation m_root;   // from
 			};
+
+			using CEdgeList     = std::vector<CEdge>;
+			using CFullEdgeList = std::vector<CFullEdge>;
 
 			namespace Edge
 			{
