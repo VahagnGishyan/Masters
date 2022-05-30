@@ -8,22 +8,22 @@ namespace Masters
 {
 	namespace Matrix
 	{
-		CVertex::CVertex() : m_location(), m_property(), m_edgeList() {}
-		CVertex::CVertex(const CLocation& loc, const CProperty& prop, const CEdgeList& edges)
-			: m_location(loc), m_property(prop), m_edgeList(edges) {}
-		CVertex::CVertex(CLocation&& loc, CProperty&& prop, CEdgeList&& edges)
-			: m_location(loc), m_property(prop), m_edgeList(edges) {}
+		CVertex::CVertex() : /*m_location(),*/ m_property(), m_neighborhoods() {}
+		CVertex::CVertex(/*const CLocation& loc, */ const CProperty & prop, const CNeighborhoods& neighborhoods)
+			: /*m_location(loc),*/ m_property(prop), m_neighborhoods(neighborhoods) {}
+		CVertex::CVertex(/*CLocation&& loc, */CProperty&& prop, CNeighborhoods&& neighborhoods)
+			: /*m_location(loc),*/ m_property(prop), m_neighborhoods(neighborhoods) {}
 		CVertex::~CVertex() {}
 
 		// location
-		const Vertex::CLocation& CVertex::location()                         const noexcept
-		{
-			return (m_location);
-		}
-		void             CVertex::location(const CLocation& loc)           noexcept
-		{
-			m_location = loc;
-		}
+		//const Vertex::CLocation& CVertex::location()                         const noexcept
+		//{
+		//	return (m_location);
+		//}
+		//void             CVertex::location(const CLocation& loc)           noexcept
+		//{
+		//	m_location = loc;
+		//}
 
 		// property
 		const CVertex::CProperty& CVertex::property()                         const noexcept
@@ -36,21 +36,21 @@ namespace Masters
 		}
 
 		// edge list
-		const Vertex::CEdgeList& CVertex::edgeList()                         const noexcept
+		const CNeighborhoods& CVertex::edgeList()                         const noexcept
 		{
-			return (m_edgeList);
+			return (m_neighborhoods);
 		}
-		void             CVertex::edgeList(const CEdgeList& edgeList)      noexcept
+		void             CVertex::neighborhoods(const CNeighborhoods& edgeList)      noexcept
 		{
-			m_edgeList = edgeList;
+			m_neighborhoods = edgeList;
 		}
-		void             CVertex::addEdge(const CEdge& edge)              noexcept
+		void             CVertex::addNeighborhood(const CNeighborhood& edge)              noexcept
 		{
-			m_edgeList.push_back(edge);
+			m_neighborhoods.push_back(edge);
 		}
-		const Vertex::CEdge& CVertex::getEdge(const int index)          const noexcept
+		const CNeighborhood& CVertex::getEdge(const int index)          const noexcept
 		{
-			return (m_edgeList[index]);
+			return (m_neighborhoods[index]);
 		}
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -6,9 +6,8 @@
 
 //////////////////////////////////////////////////////////////////////////
 
-#include "Vertex\Location.hpp"
-#include "Vertex\Edge.hpp"
-//#include "CNManager.hpp"
+#include "Location.hpp"
+#include "Neighborhood.hpp"
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -22,7 +21,7 @@ namespace Masters
 	{
 		namespace Vertex
 		{
-			using Index = int; /*notest*/
+			using Index    = int; /*notest*/
 			using Distance = int; /*notest*/
 
 			class MT_MATRIX_VERTEX_EXPORT CProperty /*notest*/
@@ -40,43 +39,45 @@ namespace Masters
 		class MT_MATRIX_VERTEX_EXPORT CVertex /*notest*/
 		{
 		public: // typedefs
-			using UUniqueID = Matrix::Vertex::Index;
-			using CProperty = Matrix::Vertex::CProperty;
-			using CEdge     = Matrix::Vertex::CEdge;
-			using CEdgeList = Matrix::Vertex::CEdgeList;
-			using CLocation = Matrix::Vertex::CLocation;
+			using UUniqueID      = Matrix::Vertex::Index;
+			using CProperty      = Matrix::Vertex::CProperty;
+			using CNeighborhood  = Matrix::CNeighborhood;
+			using CNeighborhoods = Matrix::CNeighborhoods;
+			using CLocation      = Matrix::CLocation;
 
 		public: // ctor/dector
 
 			CVertex();
-			CVertex(const CLocation& loc, const CProperty& prop, const CEdgeList& edges);
-			CVertex(CLocation&& loc, CProperty&& prop, CEdgeList&& edges);
+			CVertex(/*const CLocation& loc, */const CProperty& prop, const CNeighborhoods& neighborhoods);
+			CVertex(/*CLocation&& loc,*/ CProperty&& prop, CNeighborhoods&& neighborhoods);
 
 			virtual ~CVertex();
 
 		public:  // get set
 
 			// location
-			const CLocation& location()                          const noexcept;
-			void             location(const CLocation& loc)            noexcept;
+			//const CLocation& location()                          const noexcept;
+			//void             location(const CLocation& loc)            noexcept;
 
 			// property
 			const CProperty& property()                          const noexcept;
 			void             property(const CProperty& loc)            noexcept;
 
 			// edge list
-			const CEdgeList& edgeList()                          const noexcept;
-			void             edgeList(const CEdgeList& edgeList)       noexcept;
-			void             addEdge(const CEdge& edgeList)           noexcept;
-			const CEdge& getEdge(const int index)           const noexcept;
+			const CNeighborhoods&    edgeList()                         const noexcept;
+			const CNeighborhood&     getEdge(const int index)           const noexcept;
+			
+			void neighborhoods(const CNeighborhoods& edgeList)  noexcept;
+			void addNeighborhood(const CNeighborhood& edgeList) noexcept;
 
 		private: // member vars
-			CLocation m_location;
-			CProperty m_property;
-			CEdgeList m_edgeList;
+			//CLocation m_location;
+			CProperty      m_property;
+			CNeighborhoods m_neighborhoods;
 		};
 
-		using CVertexList = std::vector<CVertex>;
+		using CVertexList      = std::vector<CVertex>;
+
 	}
 }
 
