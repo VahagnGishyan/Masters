@@ -19,7 +19,7 @@ namespace Masters
 {
 	namespace Matrix
 	{
-		namespace Sizes
+		namespace Size
 		{
 			MacroClassInt(CHeight);
 			MacroClassInt(CLength);
@@ -27,8 +27,8 @@ namespace Masters
 
 		class MT_MATRIX_SIZES_EXPORT CSize
 		{
-			using CHeight = Sizes::CHeight;
-			using CLength = Sizes::CLength;
+			using CHeight = Size::CHeight;
+			using CLength = Size::CLength;
 
 		public: // ctor/dector
 			CSize();
@@ -56,9 +56,9 @@ namespace Masters
 			CLength m_length;
 		};
 
-		namespace Sizes
+		namespace Size
 		{
-			bool MT_MATRIX_SIZES_EXPORT isValid(const CSize& loc) noexcept;
+			bool MT_MATRIX_SIZES_EXPORT valid(const CSize& loc) noexcept;
 		}
 	}
 }
